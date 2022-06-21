@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Announcement extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -17,15 +18,16 @@ class Announcement extends Model
      */
     protected $fillable = [
         'eventID',
+        'fields'
     ];
 
     /**
-     * Get the Event that owns the Announcement
+     * Get the event associated with the Announcement
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function Event(): BelongsTo
+    public function event(): HasOne
     {
-        return $this->belongsTo(Event::class);
+        return $this->hasOne(Event::class, 'id', 'eventID');
     }
 }

@@ -17,27 +17,17 @@ class Content extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'typeID',
-        'created_by'
+        'title',
+        'createdBy',
     ];
-
-    /**
-     * Get the Type associated with the Content
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function Type(): HasOne
-    {
-        return $this->hasOne(Type::class);
-    }
 
     /**
      * Get the user associated with the Content
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function User(): HasOne
+    public function user(): HasOne
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id', 'createdBy');
     }
 }

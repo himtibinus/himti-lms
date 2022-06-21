@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class EventDetail extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -18,28 +18,39 @@ class EventDetail extends Model
      */
     protected $fillable = [
         'eventID',
+        'eventTypeID',
+        'createdBy',
         'description',
-        'location',
-        'created_by',
+        'location'
     ];
 
     /**
-     * Get the Event that owns the EventDetail
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function Event(): BelongsTo
-    {
-        return $this->belongsTo(Event::class);
-    }
-
-    /**
-     * Get the User associated with the EventDetail
+     * Get the event associated with the EventDetail
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function User(): HasOne
+    public function event(): HasOne
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(Event::class, 'id', 'eventID');
+    }
+
+    /**
+     * Get the eventType associated with the EventDetail
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function eventType(): HasOne
+    {
+        return $this->hasOne(EventType::class, 'id', 'eventTypeID');
+    }
+
+    /**
+     * Get the user associated with the EventDetail
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'createdBy');
     }
 }

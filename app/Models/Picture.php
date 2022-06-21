@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Picture extends Model
 {
@@ -17,16 +17,16 @@ class Picture extends Model
      */
     protected $fillable = [
         'albumID',
-        'location'
+        'location',
     ];
 
     /**
-     * Get the Album that owns the Picture
+     * Get the album associated with the Picture
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function Album(): BelongsTo
+    public function album(): HasOne
     {
-        return $this->belongsTo(Album::class);
+        return $this->hasOne(Album::class, 'id', 'albumID');
     }
 }

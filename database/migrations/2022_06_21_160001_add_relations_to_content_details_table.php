@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('content_details', function (Blueprint $table) {
-            $table->foreign('contentID')->references('id')->on('contents')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('imageID')->references('id')->on('pictures')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('contentID')->references('id')->on('contents')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('typeID')->references('id')->on('content_types');
+            $table->foreign('imageID')->references('id')->on('pictures')->nullOnDelete();
         });
     }
 
@@ -28,6 +29,7 @@ return new class extends Migration
     {
         Schema::table('content_details', function (Blueprint $table) {
             $table->dropForeign('content_details_contentID_foreign');
+            $table->dropForeign('content_details_typeID_foreign');
             $table->dropForeign('content_details_imageID_foreign');
         });
     }

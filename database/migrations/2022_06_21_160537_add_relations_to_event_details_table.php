@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('announcements', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('eventID');
+        Schema::table('event_details', function (Blueprint $table) {
             $table->foreign('eventID')->references('id')->on('events')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
+            $table->foreign('eventTypeID')->references('id')->on('event_types');
+            $table->foreign('createdBy')->references('id')->on('users');
         });
     }
 
@@ -28,6 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('announcements');
+        Schema::table('event_details', function (Blueprint $table) {
+            $table->dropForeign('event_details_eventID_foreign');
+            $table->dropForeign('event_details_eventTypeID_foreign');
+            $table->dropForeign('event_details_createdBy_foreign');
+        });
     }
 };

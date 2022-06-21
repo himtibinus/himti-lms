@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('pictures', function (Blueprint $table) {
-            $table->unsignedBigInteger('albumID')->nullable()->change();
+        Schema::create('contents', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->unsignedBigInteger('createdBy');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -25,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('pictures', function (Blueprint $table) {
-            $table->unsignedBigInteger('albumID')->nullable(false)->change();
-        });
+        Schema::dropIfExists('contents');
     }
 };

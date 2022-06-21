@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class ContentDetail extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -18,30 +18,41 @@ class ContentDetail extends Model
      */
     protected $fillable = [
         'contentID',
+        'typeID',
+        'imageID',
         'field1',
         'field2',
         'field3',
-        'field4',
-        'imageID',
+        'field4'
     ];
 
     /**
-     * Get the Content that owns the ContentDetail
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function Content(): BelongsTo
-    {
-        return $this->belongsTo(Content::class);
-    }
-
-    /**
-     * Get the Picture associated with the ContentDetail
+     * Get the content associated with the ContentDetail
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function Picture(): HasOne
+    public function content(): HasOne
     {
-        return $this->hasOne(Picture::class);
+        return $this->hasOne(Content::class, 'id', 'contentID');
+    }
+
+    /**
+     * Get the contentType associated with the ContentDetail
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function contentType(): HasOne
+    {
+        return $this->hasOne(ContentType::class, 'id', 'contentID');
+    }
+
+    /**
+     * Get the image associated with the ContentDetail
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function image(): HasOne
+    {
+        return $this->hasOne(Pictures::class, 'id', 'imageID');
     }
 }

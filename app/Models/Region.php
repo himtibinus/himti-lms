@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Region extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -15,6 +16,6 @@ class Region extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'name'
     ];
 }

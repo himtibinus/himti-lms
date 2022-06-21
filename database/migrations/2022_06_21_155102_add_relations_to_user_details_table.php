@@ -14,9 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('user_details', function (Blueprint $table) {
-            $table->foreign('categoryID')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('roleID')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('regionID')->references('id')->on('regions')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('avatarID')->references('id')->on('pictures');
+            $table->foreign('categoryID')->references('id')->on('categories');
+            $table->foreign('roleID')->references('id')->on('roles');
+            $table->foreign('regionID')->references('id')->on('regions');
         });
     }
 
@@ -28,9 +30,11 @@ return new class extends Migration
     public function down()
     {
         Schema::table('user_details', function (Blueprint $table) {
+            $table->dropForeign('user_details_userID_foreign');
+            $table->dropForeign('user_details_avatarID_foreign');
             $table->dropForeign('user_details_categoryID_foreign');
             $table->dropForeign('user_details_roleID_foreign');
-            $table->dropForeign('user_details_regionID_foreign');
+            $table->dropForeign('user_details_regionID');
         });
     }
 };

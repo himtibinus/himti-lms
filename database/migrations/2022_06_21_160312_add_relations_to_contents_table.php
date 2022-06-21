@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('content_details', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('contentID');
-            $table->string('field1');
-            $table->string('field2');
-            $table->string('field3');
-            $table->string('field4');
-            $table->unsignedBigInteger('imageID');
+        Schema::table('contents', function (Blueprint $table) {
+            $table->foreign('createdBy')->references('id')->on('users');
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('content_details');
+        Schema::table('contents', function (Blueprint $table) {
+            $table->dropForeign('contents_createdBy_foreign');
+        });
     }
 };

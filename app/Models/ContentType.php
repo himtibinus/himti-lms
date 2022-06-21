@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ContentType extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.

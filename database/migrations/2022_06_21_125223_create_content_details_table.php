@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('content_details', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('contentID');
             $table->unsignedBigInteger('typeID');
-            $table->unsignedBigInteger('created_by');
-            $table->timestamps();
-            $table->softDeletes();
+            $table->unsignedBigInteger('imageID')->nullable();
+            $table->string('field2')->nullable();
+            $table->string('field1')->nullable();
+            $table->string('field3')->nullable();
+            $table->string('field4')->nullable();
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('content_details');
     }
 };

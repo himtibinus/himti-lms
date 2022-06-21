@@ -10,6 +10,8 @@ class UserDetail extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -17,6 +19,7 @@ class UserDetail extends Model
      */
     protected $fillable = [
         'userID',
+        'avatarID',
         'categoryID',
         'roleID',
         'regionID',
@@ -29,36 +32,46 @@ class UserDetail extends Model
      */
     public function user(): HasOne
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id', 'userID');
     }
 
     /**
-     * Get the Category associated with the UserDetail
+     * Get the avatar associated with the UserDetail
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function Category(): HasOne
+    public function avatar(): HasOne
     {
-        return $this->hasOne(Category::class);
+        return $this->hasOne(Picture::class, 'id', 'avatarID');
     }
 
     /**
-     * Get the Role associated with the UserDetail
+     * Get the category associated with the UserDetail
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function Role(): HasOne
+    public function category(): HasOne
     {
-        return $this->hasOne(Role::class);
+        return $this->hasOne(Category::class, 'id', 'categoryID');
     }
 
     /**
-     * Get the Region associated with the UserDetail
+     * Get the role associated with the UserDetail
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function Region(): HasOne
+    public function role(): HasOne
     {
-        return $this->hasOne(Region::class);
+        return $this->hasOne(Role::class, 'id', 'roleID');
+    }
+
+    /**
+     * Get the region associated with the UserDetail
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function region(): HasOne
+    {
+        return $this->hasOne(Region::class, 'id', 'regionID');
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Category extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -21,22 +22,22 @@ class Category extends Model
     ];
 
     /**
-     * Get the Comission associated with the Category
+     * Get the comission associated with the Category
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function Comission(): HasOne
+    public function comission(): HasOne
     {
-        return $this->hasOne(Comission::class);
+        return $this->hasOne(Comission::class, 'id', 'comissionID');
     }
 
     /**
-     * Get the Division associated with the Category
+     * Get the division associated with the Category
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function Division(): HasOne
+    public function division(): HasOne
     {
-        return $this->hasOne(Division::class);
+        return $this->hasOne(Division::class, 'id', 'divisionID');
     }
 }
