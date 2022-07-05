@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('userID');
-            $table->unsignedBigInteger('avatarID');
-            $table->unsignedBigInteger('categoryID');
+            $table->unsignedBigInteger('avatarID')->nullable(); // Sementara di nullablekan
+            $table->unsignedBigInteger('categoryID')->nullable(); // sementara
             $table->unsignedBigInteger('roleID');
-            $table->unsignedBigInteger('regionID');
+            $table->unsignedBigInteger('regionID')->nullable(); // sementara
         });
     }
 

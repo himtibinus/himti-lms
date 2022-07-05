@@ -31,26 +31,24 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
-        //dd($request);
         $request->session()->regenerate();
 
-        $user = User::where('email', $request->email)
-        ->orWhere('name', $request->name)
-        ->orWhere('phone', $request->phone)
-        ->first();
+        $user = Auth::user();
+        //dd($user->email);
+        $user_role_id = UserDetail::where('roleID', $user->id)->first();
 
-        $user_id = UserDetail::where('roleID', $user->id)->first();
-
-        if($user_id->roleID == 1){
+        if($user_role_id->roleID == 1){
             return redirect()->intended(RouteServiceProvider::HOMEADMIN);
         }
-        else if($user_id->roleID == 2){
+        else if($user_role_id->roleID == 2){
             return redirect()->intended(RouteServiceProvider::HOMEAKTIVIS);
         }
-        else if($user_id->roleID == 3){
+        else if($user_role_id->roleID == 3){
             return redirect()->intended(RouteServiceProvider::HOMEMANAGER);
-        }       
-
+        }     
+        else {
+            return redirect()->back()->withErrors("Role invalid!!");
+        }
         // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -63,7 +61,7 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request)
     {
         Auth::guard('web')->logout();
-
+        Auth::logout();
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
