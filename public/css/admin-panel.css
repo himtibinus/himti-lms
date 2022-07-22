@@ -1,92 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Montserrat:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Montserrat:wght@600&display=swap");
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600px;
     background-color: rgba(243, 243, 243, 1);
-}
-
-/* Navbar & Offcanvas */
-.sidebar-nav {
-    width: 250px !important;
-}
-
-.nim {
-    font-size: 12px;
-    font-weight: 200;
-}
-
-nav .dropdown-menu {
-    width: 200px;
-    border-radius: 20px;
-}
-
-.profile-menu {
-    font-size: 12px;
-}
-
-.sidebar-menu {
-    height: 80%;
-}
-
-.sidebar-logout {
-    height: 20%;
-}
-
-.sidebar-menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar-menu a {
-    color: #ABABAB;
-    text-decoration: none;
-}
-
-.sidebar-menu a:visited {
-    color: black;
-}
-
-.sidebar-logout a {
-    color: #A11A1A;
-    font-weight: bold !important;
-    text-decoration: none;
-}
-
-@media (min-width: 992px) {
-    .sidebar-nav {
-        transform: none;
-        width: 250px !important;
-        visibility: visible !important;
-    }
-
-    .sidebar-nav {
-        transform: none !important;
-        visibility: visible !important;
-    }
-
-    .sidebar-nav-close{
-        visibility: hidden;
-    }
-
-    #main-nav {
-        margin-left: 250px;
-    }
-
-    #main-nav .container-fluid {
-        background-color: rgba(243, 243, 243, 1);
-    }
-
-    main {
-        margin-left: 250px;
-        height: calc(100vh - 135px);
-    }
-}
-
-@media (max-width: 992px) {
-    main {
-        height: calc(100vh - 125px);
-    }
 }
 
 /* Main */
@@ -98,11 +15,12 @@ nav .dropdown-menu {
 }
 
 .position-wrapper {
-    background-color: #6491EE;
+    background-color: #6491ee;
     border-radius: 30px;
 }
 
-.position-name span, .roles-name span {
+.position-name span,
+.roles-name span {
     font-size: 12px;
 }
 
@@ -114,7 +32,8 @@ nav .dropdown-menu {
     background-color: white;
 }
 
-.position-name:nth-child(2n) span, .position-name:nth-child(2n) a i {
+.position-name:nth-child(2n) span,
+.position-name:nth-child(2n) a i {
     color: white;
 }
 
@@ -124,7 +43,7 @@ nav .dropdown-menu {
 }
 
 .header-roles button {
-    background-color: #6491EE;
+    background-color: #6491ee;
     color: white;
 }
 
@@ -133,10 +52,11 @@ nav .dropdown-menu {
 }
 
 .roles-name:nth-child(2n-1) {
-    background-color: #6491EE;
+    background-color: #6491ee;
 }
 
-.roles-name:nth-child(2n-1) span, .roles-name:nth-child(2n-1) a i {
+.roles-name:nth-child(2n-1) span,
+.roles-name:nth-child(2n-1) a i {
     color: white;
 }
 
@@ -147,4 +67,3 @@ nav .dropdown-menu {
         border-radius: 30px;
     }
 }
-

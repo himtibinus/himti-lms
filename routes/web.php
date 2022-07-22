@@ -13,22 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('member');
+Route::get("/", function () {
+    return view("member");
 });
 
-Route::get('/photo', function () {
-    return view('photo');
+Route::get("/photo", function () {
+    return view("photo");
 });
 
-Route::get('/admin-panel', function () {
-    return view('admin-panel');
+Route::get("/calendar", function () {
+    return view("fullcalendar");
 });
 
-Route::get('/create-position', function () {
-    return view('create-position');
+Route::get("/meeting", function () {
+    return view("meeting");
 });
 
-Route::get('/create-roles', function () {
-    return view('create-roles');
+
+Route::get("/admin-panel", function () {
+    return view("admin-panel");
+});
+
+Route::get("/create-position", function () {
+    return view("create-position");
+});
+
+Route::get("/create-roles", function () {
+    return view("create-roles");
 });

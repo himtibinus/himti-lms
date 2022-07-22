@@ -1,0 +1,47 @@
+.meeting-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100px;
+    border: 2px solid #848484;
+    border-radius: 30px;
+}
+
+.meeting-title {
+    display: inline-block;
+    position: relative;
+}
+
+.meeting-title::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(132, 132, 132, 0.5);
+}
+
+tbody > tr.meeting-list:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+tr.meeting-list:nth-of-type(even) {
+    background-color: #6491ee;
+    color: white;
+}
+
+tr:nth-of-type(even) > td > div > a {
+    color: white !important;
+}
+
+tr.meeting-list:nth-of-type(even):hover {
+    background-color: rgba(103, 134, 196);
+    color: white;
+}
+
+tr.meeting-list:last-child {
+    border-bottom: 2px solid #848484;
+}
