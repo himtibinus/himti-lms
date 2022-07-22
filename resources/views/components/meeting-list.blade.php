@@ -1,4 +1,4 @@
-<tr class="row text-center align-items-center meeting-list p-3">
+<tr class="row text-center align-items-center meeting-list p-2">
     <td class="col-2">
         <div class="p-3 container text-center">Sun, 22 May 2022</div>
     </td>

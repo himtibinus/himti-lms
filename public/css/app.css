@@ -84,3 +84,66 @@ nav .dropdown-menu {
         height: calc(100vh - 125px);
     }
 }
+
+/* admin panel */
+/* Main */
+.wrapper {
+    background-color: rgba(243, 243, 243, 1);
+    width: 85%;
+    height: 85%;
+    /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25); */
+}
+
+.position-wrapper {
+    background-color: #6491ee;
+    border-radius: 30px;
+}
+
+.position-name span,
+.roles-name span {
+    font-size: 12px;
+}
+
+.position-name a {
+    color: black;
+}
+
+.position-name:nth-child(2n-1) {
+    background-color: white;
+}
+
+.position-name:nth-child(2n) span,
+.position-name:nth-child(2n) a i {
+    color: white;
+}
+
+.roles-wrapper {
+    border-radius: 30px;
+    background-color: white;
+}
+
+.header-roles button {
+    background-color: #6491ee;
+    color: white;
+}
+
+.roles-name a {
+    color: black;
+}
+
+.roles-name:nth-child(2n-1) {
+    background-color: #6491ee;
+}
+
+.roles-name:nth-child(2n-1) span,
+.roles-name:nth-child(2n-1) a i {
+    color: white;
+}
+
+@media (min-width: 992px) {
+    .wrapper {
+        background-color: white;
+        border: 1px solid rgba(132, 132, 132, 0.5);
+        border-radius: 30px;
+    }
+}

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", function () {
-    return view("member");
+    return view("index");
 });
 
 Route::get("/photo", function () {
@@ -25,8 +25,21 @@ Route::get("/calendar", function () {
     return view("fullcalendar");
 });
 
+Route::get("/calendar/add-event", function () {
+    return view("add-meeting");
+});
+
+Route::get("/calendar/edit-event", function () {
+    return view("edit-meeting");
+});
+
 Route::get("/meeting", function () {
+    
     return view("meeting");
+});
+
+Route::get("/manage", function(){
+    return view("member");
 });
 
 
