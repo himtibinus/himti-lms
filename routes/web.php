@@ -33,4 +33,8 @@ Route::get('/dashboard-manager', function () {
     return view('dashboard-manager');
 })->middleware(['auth'])->name('dashboard-manager');
 
+Route::get('/dashboard-dummy', function () {
+    return view('dashboard-dummy');
+})->middleware(['auth'])->name('dashboard-dummy');
+
 require __DIR__.'/auth.php';
