@@ -46,7 +46,7 @@ class AuthenticatedSessionController extends Controller
                 return redirect()->intended(RouteServiceProvider::HOMEMANAGER);
             }     
             else {
-                return redirect()->back()->withErrors("Role invalid!!");
+                return redirect()->intended(RouteServiceProvider::HOMEDUMMY);
             }
         } 
         return redirect()->intended("login");
