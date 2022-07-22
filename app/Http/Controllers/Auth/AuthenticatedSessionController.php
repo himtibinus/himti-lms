@@ -34,22 +34,22 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user = Auth::user();
-        //dd($user->email);
-        $user_role_id = UserDetail::where('roleID', $user->id)->first();
-
-        if($user_role_id->roleID == 1){
-            return redirect()->intended(RouteServiceProvider::HOMEADMIN);
-        }
-        else if($user_role_id->roleID == 2){
-            return redirect()->intended(RouteServiceProvider::HOMEAKTIVIS);
-        }
-        else if($user_role_id->roleID == 3){
-            return redirect()->intended(RouteServiceProvider::HOMEMANAGER);
-        }     
-        else {
-            return redirect()->back()->withErrors("Role invalid!!");
-        }
-        // return redirect()->intended(RouteServiceProvider::HOME);
+        if ($user != NULL){
+            $user_role_id = UserDetail::where('userID', $user->id)->first();
+            if($user_role_id->roleID == 1){
+                return redirect()->intended(RouteServiceProvider::HOMEADMIN);
+            }
+            else if($user_role_id->roleID == 2){
+                return redirect()->intended(RouteServiceProvider::HOMEAKTIVIS);
+            }
+            else if($user_role_id->roleID == 3){
+                return redirect()->intended(RouteServiceProvider::HOMEMANAGER);
+            }     
+            else {
+                return redirect()->back()->withErrors("Role invalid!!");
+            }
+        } 
+        return redirect()->intended("login");
     }
 
     /**
