@@ -49,11 +49,7 @@ class LoginRequest extends FormRequest
         $this->ensureIsNotRateLimited();
 
         
-        $user = User::where('email', $this->email)
-            // ->orWhere('name', $this->name)
-            // ->orWhere('phone', $this->phone)
-            ->first();
-        //dd($user->email);
+        $user = User::where('email', $this->email)->first();
         if (!Hash::check($this->password, $user->password)){
             return Redirect::to('auth.login')
             ->withErrors('Current Password in Incorrect!');

@@ -20,10 +20,7 @@ class UserDetailFactory extends Factory
         $userID++;
         return [
             'userID' => $userID,
-            //'avatarID' => 1,
-            //'categoryID' => 1,
             'roleID' => rand(1,3),
-            //'regionID' => rand(1,3)
         ];
     }
 }
