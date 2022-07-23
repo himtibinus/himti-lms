@@ -36,7 +36,10 @@ class AuthenticatedSessionController extends Controller
         $user = Auth::user();
         if ($user != NULL){
             $user_role_id = UserDetail::where('userID', $user->id)->first();
-            if($user_role_id->roleID == 1){
+            if (!($user_role_id)) {
+                return redirect()->intended(RouteServiceProvider::HOMEDUMMY);
+            }
+            else if($user_role_id->roleID == 1){
                 return redirect()->intended(RouteServiceProvider::HOMEADMIN);
             }
             else if($user_role_id->roleID == 2){
@@ -45,9 +48,7 @@ class AuthenticatedSessionController extends Controller
             else if($user_role_id->roleID == 3){
                 return redirect()->intended(RouteServiceProvider::HOMEMANAGER);
             }     
-            else {
-                return redirect()->intended(RouteServiceProvider::HOMEDUMMY);
-            }
+
         } 
         return redirect()->intended("login");
     }
