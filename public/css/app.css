@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Montserrat:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Montserrat:wght@600&display=swap");
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif !important;
     font-weight: 600px;
     background-color: rgba(243, 243, 243, 1);
 }
@@ -39,7 +39,7 @@ nav .dropdown-menu {
 }
 
 .sidebar-menu a {
-    color: #ABABAB;
+    color: #ababab;
     text-decoration: none;
 }
 
@@ -48,7 +48,7 @@ nav .dropdown-menu {
 }
 
 .sidebar-logout a {
-    color: #A11A1A;
+    color: #a11a1a;
     font-weight: bold !important;
     text-decoration: none;
 }
@@ -65,16 +65,12 @@ nav .dropdown-menu {
         visibility: visible !important;
     }
 
-    .sidebar-nav-close{
+    .sidebar-nav-close {
         visibility: hidden;
     }
 
     #main-nav {
         margin-left: 250px;
-    }
-
-    #main-nav .container-fluid {
-        background-color: rgba(243, 243, 243, 1);
     }
 
     main {
@@ -89,6 +85,7 @@ nav .dropdown-menu {
     }
 }
 
+/* admin panel */
 /* Main */
 .wrapper {
     background-color: rgba(243, 243, 243, 1);
@@ -98,11 +95,12 @@ nav .dropdown-menu {
 }
 
 .position-wrapper {
-    background-color: #6491EE;
+    background-color: #6491ee;
     border-radius: 30px;
 }
 
-.position-name span, .roles-name span {
+.position-name span,
+.roles-name span {
     font-size: 12px;
 }
 
@@ -114,7 +112,8 @@ nav .dropdown-menu {
     background-color: white;
 }
 
-.position-name:nth-child(2n) span, .position-name:nth-child(2n) a i {
+.position-name:nth-child(2n) span,
+.position-name:nth-child(2n) a i {
     color: white;
 }
 
@@ -124,7 +123,7 @@ nav .dropdown-menu {
 }
 
 .header-roles button {
-    background-color: #6491EE;
+    background-color: #6491ee;
     color: white;
 }
 
@@ -133,10 +132,11 @@ nav .dropdown-menu {
 }
 
 .roles-name:nth-child(2n-1) {
-    background-color: #6491EE;
+    background-color: #6491ee;
 }
 
-.roles-name:nth-child(2n-1) span, .roles-name:nth-child(2n-1) a i {
+.roles-name:nth-child(2n-1) span,
+.roles-name:nth-child(2n-1) a i {
     color: white;
 }
 
@@ -147,4 +147,3 @@ nav .dropdown-menu {
         border-radius: 30px;
     }
 }
-
