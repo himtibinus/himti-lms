@@ -7,6 +7,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\UserDetail;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -29,10 +31,26 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
-
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $user = Auth::user();
+        if ($user != NULL){
+            $user_role_id = UserDetail::where('userID', $user->id)->first();
+            if (!($user_role_id)) {
+                return redirect()->intended(RouteServiceProvider::HOMEDUMMY);
+            }
+            else if($user_role_id->roleID == 1){
+                return redirect()->intended(RouteServiceProvider::HOMEADMIN);
+            }
+            else if($user_role_id->roleID == 2){
+                return redirect()->intended(RouteServiceProvider::HOMEAKTIVIS);
+            }
+            else if($user_role_id->roleID == 3){
+                return redirect()->intended(RouteServiceProvider::HOMEMANAGER);
+            }     
+
+        } 
+        return redirect()->intended("login");
     }
 
     /**
@@ -44,7 +62,7 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request)
     {
         Auth::guard('web')->logout();
-
+        Auth::logout();
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
