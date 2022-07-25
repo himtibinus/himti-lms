@@ -54,3 +54,25 @@ Route::get("/create-position", function () {
 Route::get("/create-roles", function () {
     return view("create-roles");
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/dashboard-admin', function () {
+    return view('dashboard-admin');
+})->middleware(['auth'])->name('dashboard-admin');
+
+Route::get('/dashboard-aktivis', function () {
+    return view('dashboard-aktivis');
+})->middleware(['auth'])->name('dashboard-aktivis');
+
+Route::get('/dashboard-manager', function () {
+    return view('dashboard-manager');
+})->middleware(['auth'])->name('dashboard-manager');
+
+Route::get('/dashboard-dummy', function () {
+    return view('dashboard-dummy');
+})->middleware(['auth'])->name('dashboard-dummy');
+
+require __DIR__.'/auth.php';
