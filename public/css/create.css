@@ -1,0 +1,33 @@
+/* Main */
+.wrapper {
+    background-color: white;
+    border: 1px solid rgba(132, 132, 132, 0.5);
+    border-radius: 30px;
+    width: 85%;
+    height: 85%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.button-container button {
+    width: 258px;
+    height: 68px;
+    background-color: #6491ee;
+}
+
+.button-container-danger button {
+    width: 258px;
+    height: 68px;
+}
+
+.button-text {
+    height: 100%;
+    width: 80%;
+    font-size: 24px;
+}
+
+.button-icon {
+    height: 100%;
+    width: 20%;
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, 0.4);
+}

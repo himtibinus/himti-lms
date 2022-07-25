@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Montserrat:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Montserrat:wght@600&display=swap');
 
 body {
-    font-family: "Montserrat", sans-serif !important;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600px;
     background-color: rgba(243, 243, 243, 1);
 }
@@ -39,7 +39,7 @@ nav .dropdown-menu {
 }
 
 .sidebar-menu a {
-    color: #ababab;
+    color: #ABABAB;
     text-decoration: none;
 }
 
@@ -48,7 +48,7 @@ nav .dropdown-menu {
 }
 
 .sidebar-logout a {
-    color: #a11a1a;
+    color: #A11A1A;
     font-weight: bold !important;
     text-decoration: none;
 }
@@ -65,12 +65,16 @@ nav .dropdown-menu {
         visibility: visible !important;
     }
 
-    .sidebar-nav-close {
+    .sidebar-nav-close{
         visibility: hidden;
     }
 
     #main-nav {
         margin-left: 250px;
+    }
+
+    #main-nav .container-fluid {
+        background-color: rgba(243, 243, 243, 1);
     }
 
     main {
@@ -85,65 +89,36 @@ nav .dropdown-menu {
     }
 }
 
-/* admin panel */
 /* Main */
 .wrapper {
-    background-color: rgba(243, 243, 243, 1);
+    background-color: white;
+    border: 1px solid rgba(132, 132, 132, 0.5);
+    border-radius: 30px;
     width: 85%;
     height: 85%;
     /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25); */
 }
 
-.position-wrapper {
-    background-color: #6491ee;
-    border-radius: 30px;
+.table thead {
+    position: sticky;
 }
 
-.position-name span,
-.roles-name span {
-    font-size: 12px;
+.table th, .table td {
+    text-align: center;
 }
 
-.position-name a {
-    color: black;
+/* .table-wrapper tbody tr:nth-child(2n-1):hover {
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
-.position-name:nth-child(2n-1) {
-    background-color: white;
-}
-
-.position-name:nth-child(2n) span,
-.position-name:nth-child(2n) a i {
+.table-wrapper tbody tr:nth-child(2n),
+.table-wrapper tbody tr:nth-child(2n) select {
+    background-color: rgba(100, 145, 238, 1);
     color: white;
 }
 
-.roles-wrapper {
-    border-radius: 30px;
-    background-color: white;
-}
+.table-wrapper tbody tr:nth-child(2n):hover,
+.table-wrapper tbody tr:nth-child(2n) select:hover {
+    background-color: rgba(85, 127, 209, 1);
+} */
 
-.header-roles button {
-    background-color: #6491ee;
-    color: white;
-}
-
-.roles-name a {
-    color: black;
-}
-
-.roles-name:nth-child(2n-1) {
-    background-color: #6491ee;
-}
-
-.roles-name:nth-child(2n-1) span,
-.roles-name:nth-child(2n-1) a i {
-    color: white;
-}
-
-@media (min-width: 992px) {
-    .wrapper {
-        background-color: white;
-        border: 1px solid rgba(132, 132, 132, 0.5);
-        border-radius: 30px;
-    }
-}
